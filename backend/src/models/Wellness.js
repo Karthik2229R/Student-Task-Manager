@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const wellnessSchema = new mongoose.Schema({
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   date: { type: Date, default: () => new Date(), index: true },
   mood: { type: String, enum: ['Productive', 'Neutral', 'Exhausted'], required: true },
   focusHours: { type: Number, default: 0 }, // total focus hours logged for the day
