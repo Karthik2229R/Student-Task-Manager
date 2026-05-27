@@ -2,11 +2,11 @@ FROM node:20-alpine AS base
 WORKDIR /app
 
 # Install dependencies
-COPY backend/package*.json ./
+COPY package*.json ./
 RUN npm ci --omit=dev
 
 # Copy source code
-COPY backend/. .
+COPY . .
 
 # Expose port (default 5000)
 EXPOSE 5000
