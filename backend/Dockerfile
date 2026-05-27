@@ -1,0 +1,14 @@
+FROM node:20-alpine AS base
+WORKDIR /app
+
+# Install dependencies
+COPY backend/package*.json ./
+RUN npm ci --omit=dev
+
+# Copy source code
+COPY backend/. .
+
+# Expose port (default 5000)
+EXPOSE 5000
+
+CMD ["node", "src/server.js"]

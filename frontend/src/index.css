@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 241 245 249;
+    --surface: 255 255 255;
+    --panel: 248 250 252;
+    --text: 15 23 42;
+    --muted: 100 116 139;
+  }
+
+  .dark {
+    --bg: 8 15 29;
+    --surface: 15 23 42;
+    --panel: 20 30 50;
+    --text: 226 232 240;
+    --muted: 148 163 184;
+  }
+
+  html {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  }
+
+  body {
+    color: rgb(var(--text));
+    background: radial-gradient(circle at top, rgba(14, 116, 144, 0.12), transparent 50%),
+      radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.15), transparent 45%),
+      rgb(var(--bg));
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(18px);
+  }
+
+  .dark .glass {
+    background: rgba(15, 23, 42, 0.75);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 0 rgba(34, 211, 238, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.35);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease both;
+}
+
+.animate-glow {
+  animation: glow 2.4s ease-in-out infinite alternate;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5);
+  border-radius: 4px;
+}
